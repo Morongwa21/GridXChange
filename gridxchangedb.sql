@@ -5,6 +5,7 @@ CREATE TABLE Consumer (
     Email VARCHAR(100),
     Phone VARCHAR(15),
     Password VARCHAR(128)
+
 );
 
 CREATE TABLE Account (
@@ -12,13 +13,14 @@ CREATE TABLE Account (
    consumer_id INT,
     acc_no VARCHAR(20),
     balance DECIMAL(18, 2),
-    FOREIGN KEY (consumer_id) REFERENCES Customers(consumer_id)
+    FOREIGN KEY (consumer_id) REFERENCES Consumer(consumer_id)
 );
 
 CREATE TABLE Municipality (
     municipality_id INT AUTO_INCREMENT PRIMARY KEY,
     contact_info INT,
     energy_GridAccess DECIMAL(18, 2)
+
 );
 
 CREATE TABLE EnergyTransation (
@@ -39,4 +41,13 @@ CREATE TABLE BankedEnergy (
     FOREIGN KEY (consumer_id) REFERENCES Consumer(consumer_id)
     FOREIGN KEY (municipality_id) REFERENCES Municipality(municipality_id)
 
+);
+
+CREATE TABLE Service (
+    servise_id INT AUTO_INCREMENT PRIMARY KEY,
+    municipality_id INT,
+   servise_name VARCHAR(20),
+   discription VARCHAR(20),
+   cost DECIMAL(18, 2),
+    FOREIGN KEY (municipality_id) REFERENCES Municipality(municipality_id)
 );
