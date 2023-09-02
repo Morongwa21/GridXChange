@@ -11,7 +11,7 @@ const cunsumer = [];
 
 // Serve HTML file for registration page
 app.get('/registration', (req, res) => {
-  res.sendFile(__dirname + '/registration.html');
+  res.sendFile(__dirname + '/reg.html');
 });
 
 // API endpoint for user registration
