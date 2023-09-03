@@ -42,6 +42,12 @@
 
       const result = await response.json();
       messageDiv.textContent = result.message;
+
+      // Check if registration was successful
+      if (response.status === 201) {
+        // Redirect to the login page
+        window.location.href = '/login.html'; // Replace with the correct login page URL
+      }
     });
   </script>
 </body>
